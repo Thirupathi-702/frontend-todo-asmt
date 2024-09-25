@@ -10,7 +10,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/profile', {
+        const res = await axios.get('https://backend1-5dga.onrender.com/api/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(res.data);
@@ -27,7 +27,7 @@ const Profile = () => {
 
   const updateProfile = async () => {
     try {
-      await axios.put('http://localhost:5000/api/profile', profile, {
+      await axios.put('https://backend1-5dga.onrender.com/api/profile', profile, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('Profile updated successfully!', {

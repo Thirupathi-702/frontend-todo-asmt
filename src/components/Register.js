@@ -18,7 +18,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true); 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
+      const res = await axios.post('https://backend1-5dga.onrender.com/api/auth/signup', formData);
       localStorage.setItem('token', res.data.token);
       navigate('/todos'); 
     } catch (error) {

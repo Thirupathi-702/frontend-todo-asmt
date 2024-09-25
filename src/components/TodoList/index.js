@@ -10,7 +10,7 @@ const TodoList = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const res = await axios.get('http://localhost:5000/api/todos', {
+      const res = await axios.get('https://backend1-5dga.onrender.coms/api/todos', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setTodos(res.data);
@@ -23,7 +23,7 @@ const TodoList = () => {
   };
 
   const addTodo = async () => {
-    const res = await axios.post('http://localhost:5000/api/todos', newTodo, {
+    const res = await axios.post('https://backend1-5dga.onrender.com/api/todos', newTodo, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setTodos([...todos, { ...newTodo, id: res.data.todoId }]);
@@ -31,14 +31,14 @@ const TodoList = () => {
   };
 
   const updateTodo = async (id, updatedTodo) => {
-    await axios.put(`http://localhost:5000/api/todos/${id}`, updatedTodo, {
+    await axios.put(`https://backend1-5dga.onrender.com/api/todos/${id}`, updatedTodo, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setTodos(todos.map(todo => (todo.id === id ? { ...todo, ...updatedTodo } : todo)));
   };
 
   const deleteTodo = async (id) => {
-    await axios.delete(`http://localhost:5000/api/todos/${id}`, {
+    await axios.delete(`https://backend1-5dga.onrender.com/api/todos/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setTodos(todos.filter(todo => todo.id !== id));
